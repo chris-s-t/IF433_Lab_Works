@@ -20,7 +20,7 @@ fun main() {
 
     val studentId: String? = null
 
-    val idLength = studentID?.length ?: 0
+    val idLength = studentId?.length ?: 0
 
     println("Panjang ID: $idLength")
 }
