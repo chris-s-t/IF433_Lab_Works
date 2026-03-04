@@ -21,5 +21,13 @@ fun main() {
             }
         }
     }
-    println("----------------------")
+    println("------------------------")
+    println("\n=== Pembantu Perhitungan Matematika ===")
+
+    val PembantuMatematika = MathHelper()
+    println("Sisi x Sisi = 10 x 10 => ${PembantuMatematika.hitungLuas(10)}")
+    println("Panjang x Lebar = 10 x 5 => ${PembantuMatematika.hitungLuas(10, 5)}")
+    println("Pi * Jari-Jari^2 = 3.14 * (5.5)^2 => ${PembantuMatematika.hitungLuas(5.5)}")
+    println("------------------------")
+
 }
