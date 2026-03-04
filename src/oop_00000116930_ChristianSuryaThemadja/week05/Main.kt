@@ -28,6 +28,16 @@ fun main() {
     println("Sisi x Sisi = 10 x 10 => ${PembantuMatematika.hitungLuas(10)}")
     println("Panjang x Lebar = 10 x 5 => ${PembantuMatematika.hitungLuas(10, 5)}")
     println("Pi * Jari-Jari^2 = 3.14 * (5.5)^2 => ${PembantuMatematika.hitungLuas(5.5)}")
-    println("------------------------")
 
+    println("------------------------")
+    println("\n=== Sistem Pembayaran ===")
+
+    val DompetDigital = EWallet("Kevin", 50000.0)
+    val KartuKredit = CreditCard("Adam", 100000.0)
+
+    val daftarPembayaran: List<PaymentMethod> = listOf(DompetDigital, KartuKredit)
+
+    for (pembayaran in daftarPembayaran) {
+        pembayaran.processPayment(75000.0)
+    }
 }
