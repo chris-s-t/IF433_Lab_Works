@@ -38,6 +38,9 @@ fun main() {
     val daftarPembayaran: List<PaymentMethod> = listOf(DompetDigital, KartuKredit)
 
     for (pembayaran in daftarPembayaran) {
+        if (pembayaran is EWallet) {
+            pembayaran.topUp(50000.0)
+        }
         pembayaran.processPayment(75000.0)
     }
 }
