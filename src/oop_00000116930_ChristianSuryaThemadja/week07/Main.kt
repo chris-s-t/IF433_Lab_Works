@@ -1,5 +1,7 @@
 package oop_00000116930_ChristianSuryaThemadja.week07
 
+import oop_00000116930_ChristianSuryaThemadja.week06.processCheckout
+
 fun main() {
     println("=== TEST SINGLETON ===")
     println("Status: ${DatabaseManager.connectionStatus}")
@@ -44,4 +46,13 @@ fun main() {
     println("Dropchance item Legendary: " + ItemRarity.LEGENDARY.dropChance)
     val startWeapon = Weapon.forgeStarterSword()
     println("Anda mulai dengan senjata ${startWeapon.item.name} berdamage ${startWeapon.item.damage} dan rarity ${startWeapon.item.rarity}. Durability tersisa: ${startWeapon.durability}")
+
+    println("\n=== STORY TIME ===")
+    println("Anda menuju ke Blacksmith (Pandai Besi) untuk upgrade senjata")
+    val upgraded = startWeapon.item.copy(damage = 25)
+
+    processEvent(BattleState.SafeZone)
+    processEvent(BattleState.MonsterEncounter("Goblin Nakal"))
+    processEvent(BattleState.LootDroped(upgraded))
+    processEvent(BattleState.GameOver("Terkena Jebakan Racun"))
 }
