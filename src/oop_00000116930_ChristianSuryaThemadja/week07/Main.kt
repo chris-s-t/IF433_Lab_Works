@@ -37,7 +37,11 @@ fun main() {
     }
 
     println(uiMessage)
+    println("\n=== GAME TIME ===")
+    GameManager.startGame()
+    GameManager.startGame()
 
-    GameManager.startGame()
-    GameManager.startGame()
+    println("Dropchance item Legendary: " + ItemRarity.LEGENDARY.dropChance)
+    val startWeapon = Weapon.forgeStarterSword()
+    println("Anda mulai dengan senjata ${startWeapon.item.name} berdamage ${startWeapon.item.damage} dan rarity ${startWeapon.item.rarity}. Durability tersisa: ${startWeapon.durability}")
 }
