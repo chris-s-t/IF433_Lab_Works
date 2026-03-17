@@ -37,4 +37,7 @@ fun main() {
     }
 
     println(uiMessage)
+
+    GameManager.startGame()
+    GameManager.startGame()
 }
