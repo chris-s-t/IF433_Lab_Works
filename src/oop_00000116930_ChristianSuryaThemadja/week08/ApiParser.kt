@@ -14,10 +14,10 @@ fun parseProduct(rawJson: Map<String, Any?>): Product? {
         "API Invalid: Missing Type"
     }
 
-    if (type == "ELECTRONIC") {
+    if (type == "ELECTRONIC" && id != null) {
         val warrantyMonths = rawJson["warrantyMonths"] as? Int ?: 12
         return Product.Electronic(id, name, warrantyMonths)
-    } else if (type == "CLOTHING") {
+    } else if (type == "CLOTHING" && id != null) {
         val size = rawJson["size"] as? String ?: "All Size"
         return Product.Clothing(id, name, size)
     } else {
@@ -32,4 +32,8 @@ fun checkout(product: Product) {
     }
     val transid = JavaPaymentService.processPayment(id)!!
     println("Transaction ID: $transid")
+    when (product) {
+        is Product.Electronic -> {println("${product.name}(Warranty ${product.warrantyMonths})")}
+        is Product.Clothing -> {println("${product.name} (Size ${product.size})")}
+    }
 }
